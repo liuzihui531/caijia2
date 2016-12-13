@@ -233,13 +233,13 @@ window.jQuery || document.write("<script src='<?php echo Yii::app()->params['hos
                                 <li <?php if ($controller_id == 'goodscategory'): ?>class="active"<?php endif; ?>>
                                     <a <?php if ($controller_id == 'goodscategory'): ?>class="active"<?php endif; ?> href="<?php echo $this->createUrl('/admin/goodscategory') ?>">
                                         <i class="icon-double-angle-right"></i>
-                                        规格管理
+                                        品种管理
                                     </a>
                                 </li>
                                 <li <?php if ($controller_id == 'goods'): ?>class="active"<?php endif; ?>>
                                     <a <?php if ($controller_id == 'goods'): ?>class="active"<?php endif; ?> href="<?php echo $this->createUrl('/admin/goods') ?>">
                                         <i class="icon-double-angle-right"></i>
-                                        品种管理
+                                        规格管理
                                     </a>
                                 </li>
                                 <li <?php if ($controller_id == 'project'): ?>class="active"<?php endif; ?>>
