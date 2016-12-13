@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'price_operate':
  * @property string $id
- * @property integer $depart_id
+ * @property integer $project_id
  * @property integer $goods_id
  * @property string $avg
  * @property string $date
@@ -30,13 +30,13 @@ class PriceOperate extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('depart_id, avg', 'required'),
-			array('depart_id, goods_id, status, created', 'numerical', 'integerOnly'=>true),
+			array('project_id, avg', 'required'),
+			array('project_id, goods_id, status, created', 'numerical', 'integerOnly'=>true),
 			array('avg', 'length', 'max'=>10),
 			array('date', 'length', 'max'=>8),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, depart_id, goods_id, avg, date, status, created', 'safe', 'on'=>'search'),
+			array('id, project_id, goods_id, avg, date, status, created', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,7 +58,7 @@ class PriceOperate extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'depart_id' => '部门ID',
+			'project_id' => '项目ID',
 			'goods_id' => '商品ID',
 			'avg' => '平均价格',
 			'date' => '日期',
@@ -86,7 +86,7 @@ class PriceOperate extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-		$criteria->compare('depart_id',$this->depart_id);
+		$criteria->compare('project_id',$this->project_id);
 		$criteria->compare('goods_id',$this->goods_id);
 		$criteria->compare('avg',$this->avg,true);
 		$criteria->compare('date',$this->date,true);

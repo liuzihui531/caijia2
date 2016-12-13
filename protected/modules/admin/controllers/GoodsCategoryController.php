@@ -11,7 +11,7 @@
  *
  * @author Dell
  */
-class GoodsCategoryController extends AdminBaseController {
+class GoodscategoryController extends AdminBaseController {
 
     public $page_name = "商品分类";
 
