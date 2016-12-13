@@ -60,10 +60,12 @@ $(function(){
 	});
   $(document).on("click",'.transPrice',function(){
     $(".money .input_m").attr("placeholder","请输入原因");
+     $(".money .input_m").val('');
     $(this).removeClass('transPrice').addClass("inputPrice");
   });
   $(document).on("click",'.inputPrice',function(){
     $(".money .input_m").attr("placeholder","请输入价格");
+    $(".money .input_m").val('');
     $(this).removeClass('inputPrice').addClass("transPrice");
   });
   //提交价格
