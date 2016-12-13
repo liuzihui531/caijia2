@@ -73,7 +73,7 @@
 			list($second_start,$second_end) = explode("-",$project_second);
 			$now = time();
 			$nowDate = date("Ymd");
-			$project_dates_arr = $project_dates ? explode(",", $project_dates);
+			$project_dates_arr = $project_dates ? explode(",", $project_dates) : array();
 			if(!in_array($nowDate, $project_dates_arr)){
 				$this->handleResult(0,'不在项目期间内，不能报价');
 			}
