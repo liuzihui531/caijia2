@@ -51,12 +51,14 @@ class ProjectController extends ChargeBaseController {
         $place_model = Yii::app()->db->createCommand("select id,name from place where id in (".$model->place_ids.")")->queryAll();
         //采价日志
         $date = "20161211";
-        $sql = "select place_id,avg(price) as avg,date,project_id,goods_id from price_log group by place_id,goods_id having `date`='{$date}' and project_id=$id";
-        $place_log_model = Yii::app()->db->createCommand($sql)->queryAll();
-        $place_log_data = array();
-        foreach ($place_log_model as $k => $v){
-            $place_log_data[$v['goods_id']][$v['place_id']] = $v['avg'];
-        };
+        //价格等于0则不参与计算
+        $sql = "select place_id,avg(price) as avg,date,project_id,goods_id,price from price_log group by place_id,goods_id having `date`='{$date}' and project_id=$id and price>0";
+        $price_log_model = Yii::app()->db->createCommand($sql)->queryAll();
+       
+        $price_log_data = array();
+        foreach ($price_log_model as $k => $v){
+            $price_log_data[$v['goods_id']][$v['place_id']] = $v['avg'];
+        }; 
         $yesterday = date("Ymd",  strtotime("-1 day",  strtotime($date)));
         $yesterday_model = Yii::app()->db->createCommand("select * from price_operate where date='{$yesterday}' and project_id={$id}")->queryAll();
         $yesterday_data = array();
@@ -77,7 +79,7 @@ class ProjectController extends ChargeBaseController {
             'all_count'=>$all_count,
             'all_goods' => $all_goods,
             'place_model' => $place_model,
-            'place_log_data' => $place_log_data,
+            'price_log_data' => $price_log_data,
             'yesterday_data' => $yesterday_data,
             'date' => $date,
             'price_operate_data' => $price_operate_data,

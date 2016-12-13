@@ -66,14 +66,15 @@
 				$model->price = 0;
 				$model->reason = $price;
 			}
-			$project_begin_date = $projectModel->begin_date;
-			$project_end_date = $projectModel->end_date;
+			$project_dates = $projectModel->dates;
 			$project_first = $projectModel->first;
 			$project_second = $projectModel->second;
 			list($first_start,$first_end) = explode("-",$project_first);
 			list($second_start,$second_end) = explode("-",$project_second);
 			$now = time();
-			if($now < $project_begin_date || $now > $project_end_date){
+			$nowDate = date("Ymd");
+			$project_dates_arr = $project_dates ? explode(",", $project_dates);
+			if(!in_array($nowDate, $project_dates_arr)){
 				$this->handleResult(0,'不在项目期间内，不能报价');
 			}
 			$first_start_time = strtotime(date("Y-m-d")." ".$first_start);
@@ -123,8 +124,7 @@
 				$model->goods_id = $goods_id;
 				$model->price = $price;
 				$model->goodscate_id = $goodscate_id;
-				$model->project_begin_date = $project_begin_date;
-				$model->project_end_date = $project_end_date;
+				$model->project_dates = $project_dates;
 				$model->project_first = $project_first;
 				$model->project_second = $project_second;
 				$model->project_name = $projectModel->name;
