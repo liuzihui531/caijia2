@@ -14,7 +14,8 @@
 					<?php $colorData = array('bgRed','bgYellow','bgBlue','bgYellow'); ?>
 					<?php foreach ($goodsModel as $key => $val): ?>
 						<?php $colorKey = $key % 4; ?>
-						<li data-goodsid="<?php echo $val->id ?>" class="<?php echo $colorData[$colorKey] ?> goodsIsEnableClick"><strong><?php echo $val->goodsCategory->name ?></strong><p><?php echo $val->name ?></p><span><?php echo $val->goodsCategory->unit ?></span><span class='uped_price'></span></li>
+						<li data-goodsid="<?php echo $val->id ?>" class="<?php echo $colorData[$colorKey] ?> goodsIsEnableClick"><strong><?php echo $val->goodsCategory->name ?></strong><p><?php echo $val->name ?></p><span><?php echo $val->goodsCategory->unit ?></span>
+                                                    <span class='uped_price'><?php echo isset($price_log_data[$val->id][$placeModel->id]) ? "(".$price_log_data[$val->id][$placeModel->id].")" :"" ?></span></li>
 					<?php endforeach ?>
 				</ul>
 			<?php endif ?>			
