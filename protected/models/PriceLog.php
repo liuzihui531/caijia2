@@ -10,8 +10,7 @@
  * @property integer $place_id
  * @property integer $goods_id
  * @property string $price
- * @property integer $project_begin_date
- * @property integer $project_end_date
+ * @property integer $project_dates
  * @property string $project_first
  * @property string $project_second
  * @property integer $user_type

@@ -6,8 +6,7 @@
  * The followings are the available columns in table 'project':
  * @property integer $id
  * @property string $name
- * @property integer $begin_date
- * @property integer $end_date
+ * @property integer $project_dates
  * @property string $desc
  * @property string $place_ids
  * @property string $goodscate_ids
@@ -21,9 +20,19 @@ class Project extends CActiveRecord
 	public static function getUserProject($user_id){
 		$userModel = User::model()->findByPk($user_id);
 		$depart_id = $userModel->depart_id;
-		$now = time();
-		$sql = "select p.* from project_depart_relation r left join project p on r.project_id=p.id where r.depart_id=$depart_id and p.begin_date<=$now and p.end_date>=$now";
-		return Project::model()->findAllBySql($sql);
+		$criteria = new CDbCriteria();
+		$criteria->with = array('project');
+		$criteria->compare("depart_id",$depart_id);
+		$model = ProjectDepartRelation::model()->findAll($criteria);
+		$return = array();
+		$nowDate = date("Ymd");
+		foreach ($model as $key => $val) {
+			$dates = $val->project->dates ? explode(",",$val->project->dates) : array();
+			if($dates && in_array($nowDate, $dates)){
+				$return[] = $val->project;
+			}
+		}
+		return $return;
 	}
 	/**
 	 * @return string the associated database table name

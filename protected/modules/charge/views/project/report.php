@@ -26,10 +26,12 @@
                                 <?php 
                                     $goods_id = $all_goods[$k][$key][$i]['id'];
                                     $place_id = $vv['id'];
-                                    $price = isset($place_log_data[$goods_id][$place_id]) ?  $place_log_data[$goods_id][$place_id] : 0;
+                                    $price = isset($price_log_data[$goods_id][$place_id]) ?  $price_log_data[$goods_id][$place_id] : 0;
                                     echo $price;
-                                    $today_price += $price;
-                                    $today_count += 1;
+                                    if($price > 0){//价格大于0才计算
+                                        $today_price += $price;
+                                        $today_count += 1;
+                                    }
                                 ?>
                             </td>
                         <?php endforeach; ?>
@@ -38,12 +40,13 @@
                         <td>
                             <?php if(isset($price_operate_data[$goods_id])): ?>
                                 <?php if($price_operate_data[$goods_id]['status'] == 1): ?>
-                                    已上报&nbsp;&nbsp;<a href="#">去审核</a>
+                                    已上报&nbsp;&nbsp;<a href="<?php echo $this->createUrl("audit",array('id' => $price_operate_data[$goods_id]['id'])) ?>">去审核</a>
                                 <?php elseif($price_operate_data[$goods_id]['status'] == 2): ?>
                                     已审核
                                 <?php endif; ?>
                             <?php else: ?>
-                                    未上报&nbsp;&nbsp;<a href="<?php echo $this->createUrl("up",array('goods_id' => $goods_id,'date' => $date,'project_id' => $project_id)) ?>">去上报</a>
+                                    未上报&nbsp;&nbsp;
+                                    <a href="<?php echo $this->createUrl("up",array('goods_id' => $goods_id,'date' => $date,'project_id' => $project_id,'today_price'=>$today_price,'total_count' => $today_count)) ?>">去上报</a>
                             <?php endif; ?>
                         </td>
                         <?php if ($i != 0): ?></tr><?php endif; ?>
