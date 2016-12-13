@@ -80,6 +80,7 @@ $(function(){
           }else{
             $("li[data-goodsid='"+goods_id+"']").find(".uped_price").html("("+price+")")
           }
+          $(".money").hide();
       },'json');
   });  
 })

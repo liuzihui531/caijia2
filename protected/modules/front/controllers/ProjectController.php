@@ -39,7 +39,15 @@
 			if($goodsCateIds){
 				$goodsModel = $this->getGoodsByCateTopIds($goodsCateIds);
 			}
-			$this->render("goods",array("goodsModel" => $goodsModel,'projectModel' => $projectModel,'placeModel' => $placeModel));
+                        $date = date("Ymd");
+                        $price_log_model = PriceLog::model()->findByAttributes(array('date' => $date,'project_id' => $projectId));
+                        $price_log_data = array();
+                        if($price_log_model){
+                            foreach ($price_log_model as $k => $v){
+                                $price_log_data[$v->goods_id][$v->place_id] = $v->price;
+                            }
+                        }
+			$this->render("goods",array("goodsModel" => $goodsModel,'projectModel' => $projectModel,'placeModel' => $placeModel,'price_log_data' => $price_log_data));
 		}
 
 		/**
