@@ -96,7 +96,7 @@
 					$tmp->created = time();
 					$tmp->save();
 					if($tmp->hasErrors()){
-						$this->handleResult(0,Utils::getFirstError($tmp->erros));
+						$this->handleResult(0,Utils::getFirstError($tmp->errors));
 					}else{
 						$this->handleResult(1,'');
 					}
@@ -110,7 +110,7 @@
 					$tmp->created = time();
 					$tmp->save();
 					if($tmp->hasErrors()){
-						$this->handleResult(0,Utils::getFirstError($tmp->erros));
+						$this->handleResult(0,Utils::getFirstError($tmp->errors));
 					}else{
 						$this->handleResult(1,'');
 					}
@@ -135,7 +135,7 @@
 				$model->date = $date;
 				$model->save();
 				if($model->hasErrors()){
-					$this->handleResult(0,Utils::getFirstError($model->erros));
+					$this->handleResult(0,Utils::getFirstError($model->errors));
 				}else{
 					$this->handleResult(1,'');
 				}
