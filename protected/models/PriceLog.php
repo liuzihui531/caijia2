@@ -36,7 +36,7 @@ class PriceLog extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('times,project_id, goodscate_id, place_id, goods_id, project_dates, user_type, user_id, created', 'numerical', 'integerOnly'=>true),
+			array('times,project_id, goodscate_id, place_id, goods_id, user_type, user_id, created', 'numerical', 'integerOnly'=>true),
 			array('price', 'length', 'max'=>10),
 			array('project_first, project_second,project_name', 'length', 'max'=>64),
 			array('reason', 'length', 'max'=>512),
