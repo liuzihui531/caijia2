@@ -40,7 +40,7 @@
 				$goodsModel = $this->getGoodsByCateTopIds($goodsCateIds);
 			}
                         $date = date("Ymd");
-                        $price_log_model = PriceLog::model()->findByAttributes(array('date' => $date,'project_id' => $projectId));
+                        $price_log_model = PriceLog::model()->findAllByAttributes(array('date' => $date,'project_id' => $projectId));
                         $price_log_data = array();
                         if($price_log_model){
                             foreach ($price_log_model as $k => $v){

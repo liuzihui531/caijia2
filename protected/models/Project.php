@@ -54,6 +54,7 @@ class Project extends CActiveRecord
 			array('created', 'numerical', 'integerOnly'=>true),
 			array('name, place_ids, goodscate_ids, depart_ids', 'length', 'max'=>64),
 			array('first, second', 'length', 'max'=>32),
+                        array('desc','safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, dates, desc, place_ids, goodscate_ids, first, second, depart_ids, created', 'safe', 'on'=>'search'),
