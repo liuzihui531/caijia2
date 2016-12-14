@@ -56,6 +56,7 @@
                                 <td>
                                     <a href="<?php echo $this->createUrl('common/index', array('id' => $v->id,'type'=>'project')) ?>">编辑采价点</a>
                                     <a href="<?php echo $this->createUrl('common/dates', array('id' => $v->id)) ?>">编辑日期</a>
+                                    <a href="<?php echo $this->createUrl('common/report', array('id' => $v->id)) ?>">查看采价</a>
                                     <a href="<?php echo $this->createUrl('update', array('id' => $v->id)) ?>">修改</a>
                                     <a href="javascript:void(0)" class="delete-single" data-url="<?php echo $this->createUrl('delete', array('id' => $v->id)) ?>">删除</a>
                                 </td>

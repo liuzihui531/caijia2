@@ -28,9 +28,10 @@ class PriceOperateLog extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('status, user_type, user_id, created', 'numerical', 'integerOnly'=>true),
+			array('status, user_type, user_id, created,project_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
+                        array('date', 'length', 'max'=>8),
 			array('id, status, user_type, user_id, created', 'safe', 'on'=>'search'),
 		);
 	}

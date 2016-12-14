@@ -69,6 +69,9 @@
 window.jQuery || document.write("<script src='<?php echo Yii::app()->params['host']; ?>/ace/static/js/jquery-1.10.2.min.js'>"+"<"+"script>");
 </script>
 <![endif]-->
+        <!--日期插件-->        
+        <script src="/ace/assets/js/jquery-ui-1.10.3.full.min.js"></script>
+        <link rel="stylesheet" href="/ace/assets/css/jquery-ui-1.10.3.full.min.css" />
     </head>
 
     <body>
@@ -80,10 +83,10 @@ window.jQuery || document.write("<script src='<?php echo Yii::app()->params['hos
         <?php endforeach; ?>
         <div class="navbar navbar-default" id="navbar">
             <script type="text/javascript">
-                try {
-                    ace.settings.check('navbar', 'fixed')
-                } catch (e) {
-                }
+            try {
+                ace.settings.check('navbar', 'fixed')
+            } catch (e) {
+            }
             </script>
 
             <div class="navbar-container" id="navbar-container">

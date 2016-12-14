@@ -1,30 +1,3 @@
-<div class="widget-box">
-    <div class="widget-header">
-        <h4>日期搜索框</h4>
-    </div>
-    <div class="widget-body">
-        <div class="widget-main">
-            <form class="form-inline" method="get">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="input-group input-group-sm">
-                            <input type="text" id="datepicker_date" name="date" class="form-control datepicker"value="<?php echo Yii::app()->request->getParam('date','') ?>" placeholder="时间"/>
-                            <span class="input-group-addon">
-                                <i class="icon-calendar"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-purple btn-sm">
-                        确定
-                        <i class="icon-search icon-on-right bigger-110"></i>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<?php if($price_log_data): ?>
-
 <form>
 <table class="table table-hover table-bordered">
     <tr>
@@ -86,26 +59,6 @@
 <?php endif; ?>
 
 </table>
-    <?php else: ?>
-    暂无数据
-    <?php endif; ?>
-    <div class="clearfix form-actions">
-    <div class="col-md-offset-3 col-md-9">
-        <button class="btn btn-info" type="button" id="submit">
-            <i class="icon-ok bigger-110"></i>
-            上报
-        </button>
-    </div>
-</div>
+   
 </form>
-<script type="text/javascript">
-     jQuery(function ($) {
-        $("#datepicker_date").datepicker({
-            showOtherMonths: true,
-            selectOtherMonths: false,
-            dateFormat: 'yy-mm-dd', //日期格式  
-            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-            dayNamesMin: ['日', '一', '二', '三', '四', '五', '六']
-        });
-    });
-</script>
+

@@ -15,6 +15,7 @@ class ProjectController extends ChargeBaseController {
     
     public function actionReport(){
         $id = Yii::app()->request->getParam('id',0);
+        $date = Yii::app()->request->getParam('date','');
         $model = Project::model()->findByPk($id);
         $goodscate_ids = $model->goodscate_ids;
         $goods = GoodsCategory::getGoodsCategory();
@@ -50,7 +51,7 @@ class ProjectController extends ChargeBaseController {
         //查询采价点
         $place_model = Yii::app()->db->createCommand("select id,name from place where id in (".$model->place_ids.")")->queryAll();
         //采价日志
-        $date = "20161211";
+        $date = date('Ymd',  strtotime($date));
         //价格等于0则不参与计算
         $sql = "select place_id,avg(price) as avg,date,project_id,goods_id,price from price_log group by place_id,goods_id having `date`='{$date}' and project_id=$id and price>0";
         $price_log_model = Yii::app()->db->createCommand($sql)->queryAll();
