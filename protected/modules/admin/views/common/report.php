@@ -59,12 +59,6 @@
 <?php endif; ?>
 
 </table>
-    <div class="clearfix form-actions">
-    <div class="col-md-offset-3 col-md-9">
-        <button class="btn btn-info" type="button" id="submit">
-            <i class="icon-ok bigger-110"></i>
-            上报
-        </button>
-    </div>
-</div>
+   
 </form>
+
