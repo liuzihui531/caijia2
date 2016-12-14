@@ -24,7 +24,7 @@
 	
 	<footer class="footer">
 		<ul class="clearfix">
-			<li><a href="#"><img src="/static/front/img/ico_m1.png" /><p>采价系统</p><b>1</b></a></li>
+			<li><a href="#"><img src="/static/front/img/ico_m1.png" /><p>采价系统</p><!--<b>1</b>--></a></li>
 			<li><a href="#"><img src="/static/front/img/ico_m2.png" /><p>通知公告</p></a></li>
 			<li><a href="#"><img src="/static/front/img/ico_m3.png" /><p>管理中心</p></a></li>
 		</ul>

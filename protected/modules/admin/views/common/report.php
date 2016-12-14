@@ -37,7 +37,7 @@
                             </td>
                         <?php endforeach; ?>
                         <td><?php echo $today_count == 0 ? 0 : $today_price/$today_count ?></td>
-                        <td><?php echo isset($yesterday_data[$good_id]) ? $yesterday_data[$good_id] : 0 ?></td>
+                        <td><?php echo isset($yesterday_data[$good_id]) ? $yesterday_data[$good_id] : 0 ?></td></tr>
 <!--                        <td>
                             <?php if(isset($price_operate_data[$goods_id])): ?>
                                 <?php if($price_operate_data[$goods_id]['status'] == 1): ?>

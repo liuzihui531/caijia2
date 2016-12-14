@@ -19,9 +19,9 @@
         <?php echo $content; ?>
 
         <footer class="footer">
-            <div class="hotLine">客服热线：888-88888888</div>
+            <div class="hotLine"><!--客服热线：888-88888888--></div>
             <ul class="clearfix">
-                <li><a href="<?php echo $this->createUrl('/front') ?>"><img src="/static/front/img/ico_m1.png" /><p>采价系统</p><b>1</b></a></li>
+                <li><a href="<?php echo $this->createUrl('/front') ?>"><img src="/static/front/img/ico_m1.png" /><p>采价系统</p><!--<b>1</b>--></a></li>
                 <li><a href="<?php echo $this->createUrl("/front/announce") ?>"><img src="/static/front/img/ico_m2.png" /><p>通知公告</p></a></li>
                 <li><a href="<?php echo $this->createUrl("/front/member") ?>"><img src="/static/front/img/ico_m3.png" /><p>管理中心</p></a></li>
             </ul>
